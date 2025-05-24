@@ -31,7 +31,7 @@ function loadMap(mapName) {
     selectedCoords = [];
     updateGrid();
     submitButton.style.display = "none";
-    // Обновим заголовок
+    // Refresh title
     const title = mapName
         .replace(/_/g, " ")
         .split(" ")
@@ -39,7 +39,7 @@ function loadMap(mapName) {
         .join(" ");
     document.getElementById("map-title").textContent = title;
 
-    // Подсветим активную кнопку
+    // active button
     Array.from(mapList.children).forEach(btn => {
         btn.classList.toggle("active", btn.textContent === title);
     });
@@ -61,7 +61,7 @@ function updateGrid() {
                     cell.classList.remove("selected");
                 } else {
                     if (selectedCoords.length >= 7) {
-                        alert("Можно выбрать не более 7 позиций. Пожалуйста, уберите лишнюю.");
+                        alert("You can select up to 7 spots.");
                         return;
                     }
                     selectedCoords.push(key);
@@ -79,7 +79,7 @@ submitButton.onclick = () => {
     const coordsStr = selectedCoords.join(";");
     const emailValue = document.querySelector("#thank-you-popup input").value;
 
-    // создаём невидимую форму
+    // inv form
     const form = document.createElement("form");
     form.action = "https://script.google.com/macros/s/AKfycbyjcg5Zu0KJfAqTK_ySkkRjGkFLnT7WoCQGB8oeJN35jf0fLc2A2-xujwu8Vufq2r5qLw/exec";
     form.method = "POST";
@@ -109,15 +109,12 @@ iframe.name = "hidden_iframe";
 iframe.style.display = "none";
 document.body.appendChild(iframe);
 
-// Настраиваем форму на отправку в iframe
 form.target = "hidden_iframe";
 document.body.appendChild(form);
 form.submit();
 
-// Показываем popup
 popup.classList.remove("hidden");
 
-// Очищаем состояние
 selectedCoords = [];
 submitButton.style.display = "none";
 updateGrid();
@@ -127,7 +124,7 @@ function closePopup() {
     popup.classList.add("hidden");
 }
 
-// Загружаем случайную карту при первом открытии
+// random map
 window.addEventListener("DOMContentLoaded", () => {
     const randomMap = maps[Math.floor(Math.random() * maps.length)];
     loadMap(randomMap);
