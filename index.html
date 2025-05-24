@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TD-Position | WoT</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Карты</h2>
+            <div id="map-list">
+                </div>
+        </aside>
+        <main class="main">
+            <div class="instructions">
+                <p>Click on a section of the map to mark your favorite TD positions. You can select up to 7 spots, then click 'Confirm' to submit.</p>
+            </div>
+            <div id="map-title" class="map-title">Select map</div>
+
+            <div class="map-container">
+                <div class="map-area-with-button">
+                    <div class="map-content-wrapper">
+                        <div class="map-wrapper" id="map-wrapper">
+                            <img id="map-image" src="https://placehold.co/700x500/cccccc/333333?text=Выберите+карту" alt="Карта">
+                            <div class="grid-overlay" id="grid-overlay">
+                                </div>
+                            </div>
+                            <button id="submit-button" style="display: none;">Confirm</button> 
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="thank-you-popup" class="popup hidden">
+        <p>Thanks for your contribution! 😊</p>
+        <p>If you'd like, leave your contact info. We'll send you the app once it's ready.</p>
+        <input type="email" id="user-email-contact" placeholder="Ваш e-mail">
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script src="scrypt.js"></script>
+    </body>
+</html>
